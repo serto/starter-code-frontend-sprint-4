@@ -11,7 +11,7 @@ function getAllDirectors(array) {
 
     result = result.filter(function(el, director) {
         return result.indexOf(el) == director;
-    })
+    });
 
     return result;
 }
@@ -126,8 +126,7 @@ function moviesAverageByCategory(array, category) {
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(array) {
-    console.log(array);
-    let result = array.map(x => x);
+    let result = array.map(x => { return {...x } });
 
     result = result.map(function(movie) {
 
@@ -136,12 +135,10 @@ function hoursToMinutes(array) {
         let min = (duration[1]) ? parseInt(duration[1].slice(0, -3)) : 0;
         let total = hours + min;
         movie.duration = total;
-        console.log('total : ', typeof(total));
 
         return movie;
 
     });
-    console.log(result);
     return result;
 
 }
